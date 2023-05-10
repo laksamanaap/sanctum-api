@@ -40,12 +40,7 @@ Route::post('/products', [UserController::class, 'store']);
 // Product API's
 
 Route::group(['middleware' => ['auth:sanctum']], function() { 
-// User API's
 Route::post('/register', [AuthController::class, 'register']);
-
 Route::post('/register', [AuthController::class, 'login']);
-
 Route::post('/logout', [AuthController::class, 'logout']);
-// User API's
-
 });
