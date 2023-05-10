@@ -25,14 +25,6 @@ Route::get('/greet', [UserController::class, 'greet']);
 Route::get('/greet2', [UserController::class, 'greet2']);
 // Testing API's
 
-// User API's
-Route::post('/register', [AuthController::class, 'register']);
-
-Route::post('/register', [AuthController::class, 'login']);
-
-Route::post('/logout', [AuthController::class, 'logout']);
-// User API's
-
 // Product API's
 Route::get('/products', [UserController::class, 'index']);
 
@@ -47,8 +39,13 @@ Route::put('/products', [UserController::class, 'update']);
 Route::post('/products', [UserController::class, 'store']);
 // Product API's
 
+Route::group(['middleware' => ['auth:sanctum']], function() { 
+// User API's
+Route::post('/register', [AuthController::class, 'register']);
 
-// Route::group(['middleware' => ['auth:sanctum']], function() { 
-    
+Route::post('/register', [AuthController::class, 'login']);
 
-// });
+Route::post('/logout', [AuthController::class, 'logout']);
+// User API's
+
+});
