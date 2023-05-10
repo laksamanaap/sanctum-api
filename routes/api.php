@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,17 +20,35 @@ use App\Http\Controllers\ProductController;
 // Route::resource('products', ProductController::class); 
 // => To get all routes
 
+// Testing API's
+Route::get('/greet', [UserController::class, 'greet']);
+Route::get('/greet2', [UserController::class, 'greet2']);
+// Testing API's
+
+// User API's
 Route::post('/register', [AuthController::class, 'register']);
 
-Route::get('/products', [ProductController::class, 'index']);
+Route::post('/register', [AuthController::class, 'login']);
 
-Route::get('/products/search/{name}', [ProductController::class, 'search']);
+Route::post('/logout', [AuthController::class, 'logout']);
+// User API's
 
-Route::get('/products/{id}', [ProductController::class, 'show']);
+// Product API's
+Route::get('/products', [UserController::class, 'index']);
+
+Route::get('/products/search/{name}', [UserController::class, 'search']);
+
+Route::get('/products/{id}', [UserController::class, 'show']);
+
+Route::delete('/products/{id}', [UserController::class, 'destroy']);
+
+Route::put('/products', [UserController::class, 'update']);
+
+Route::post('/products', [UserController::class, 'store']);
+// Product API's
 
 
-Route::group(['middleware' => ['auth:sanctum']], function() {
-    Route::post('/products', [ProductController::class, 'store']);
-    Route::put('/products/{id}', [ProductController::class, 'update']);
-    Route::delete('/produtcs/{id}', [ProductController::class, 'destroy']);
-});
+// Route::group(['middleware' => ['auth:sanctum']], function() { 
+    
+
+// });
