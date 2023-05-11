@@ -19,6 +19,96 @@
         }
     ],
     "paths": {
+        "/register": {
+            "post": {
+                "tags": [
+                    "UserAuth"
+                ],
+                "summary": "Register API's",
+                "description": "Get a JWT via given credentials.",
+                "operationId": "0903f2e0df1a8857bee538fc055417f0",
+                "requestBody": {
+                    "description": "- Register to your account",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "email"
+                                    },
+                                    "password": {
+                                        "type": "password"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "password"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Succesfully Login"
+                    },
+                    "201": {
+                        "description": "Succesfully Login"
+                    },
+                    "419": {
+                        "description": "Unauthorhized"
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "tags": [
+                    "UserAuth"
+                ],
+                "summary": "Login API's",
+                "description": "Get a JWT via given credentials.",
+                "operationId": "2dd578ff7aba2721293dac66833b27d1",
+                "requestBody": {
+                    "description": "- Login to add products",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "email"
+                                    },
+                                    "password": {
+                                        "type": "password"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Succesfully Login"
+                    },
+                    "201": {
+                        "description": "Succesfully Login"
+                    },
+                    "419": {
+                        "description": "Unauthorhized"
+                    }
+                }
+            }
+        },
         "/greet": {
             "get": {
                 "tags": [
@@ -57,7 +147,7 @@
         "/products": {
             "get": {
                 "tags": [
-                    "products"
+                    "Products"
                 ],
                 "summary": "Get list of products",
                 "description": "Get list of products",
@@ -70,7 +160,7 @@
             },
             "put": {
                 "tags": [
-                    "products"
+                    "Products"
                 ],
                 "summary": "Update products",
                 "operationId": "3e3539ba5cdd54a32da11ead21fa2efe",
@@ -111,7 +201,7 @@
             },
             "post": {
                 "tags": [
-                    "products"
+                    "Products"
                 ],
                 "summary": "Post store products",
                 "description": "Get a JWT via given credentials.",
@@ -152,7 +242,7 @@
         "/products/{id}": {
             "get": {
                 "tags": [
-                    "products"
+                    "Products"
                 ],
                 "summary": "Show specific products",
                 "description": "Show specific products",
@@ -176,7 +266,7 @@
             },
             "delete": {
                 "tags": [
-                    "products"
+                    "Products"
                 ],
                 "summary": "Delete products",
                 "description": "Delete products",
@@ -202,7 +292,7 @@
         "/products/search/{name}": {
             "get": {
                 "tags": [
-                    "products"
+                    "Products"
                 ],
                 "summary": "Search specific products",
                 "description": "Show specific products",

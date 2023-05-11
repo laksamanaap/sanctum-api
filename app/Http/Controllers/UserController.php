@@ -53,7 +53,7 @@ class UserController extends Controller
     /**
      * @OA\Get(
      *     path="/products",
-     *     tags={"products"},
+     *     tags={"Products"},
      *     summary="Get list of products",
      *     description="Get list of products",
      *     operationId="products",
@@ -72,7 +72,7 @@ class UserController extends Controller
     /**
      * @OA\Get(
      *     path="/products/{id}",
-     *     tags={"products"},
+     *     tags={"Products"},
      *     summary="Show specific products",
      *     description="Show specific products",
      *     operationId="Showproducts",
@@ -103,7 +103,7 @@ class UserController extends Controller
     /**
      * @OA\Get(
      *     path="/products/search/{name}",
-     *     tags={"products"},
+     *     tags={"Products"},
      *     summary="Search specific products",
      *     description="Show specific products",
      *     operationId="Searchproducts",
@@ -136,7 +136,7 @@ class UserController extends Controller
  *
  * @OA\Post(
  *     path="/products",
- *     tags={"products"},
+ *     tags={"Products"},
  *     summary="Post store products",
  *     @OA\RequestBody(
  *          description= "- Post new products",
@@ -171,7 +171,7 @@ public function store(Request $request)
     /**
      * @OA\Put(
      *     path="/products",
-     *     tags={"products"},
+     *     tags={"Products"},
      *     summary="Update products",
      *     @OA\RequestBody(
      *          description= "- Update products",
@@ -225,7 +225,7 @@ public function store(Request $request)
     /**
      * @OA\Delete(
      *     path="/products/{id}",
-     *     tags={"products"},
+     *     tags={"Products"},
      *     summary="Delete products",
      *     description="Delete products",
      *     operationId="deleteProducts",

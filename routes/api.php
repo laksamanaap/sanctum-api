@@ -25,22 +25,21 @@ Route::get('/greet', [UserController::class, 'greet']);
 Route::get('/greet2', [UserController::class, 'greet2']);
 // Testing API's
 
-// Product API's
+// Non auth API's
 Route::get('/products', [UserController::class, 'index']);
 
 Route::get('/products/search/{name}', [UserController::class, 'search']);
 
 Route::get('/products/{id}', [UserController::class, 'show']);
 
-Route::delete('/products/{id}', [UserController::class, 'destroy']);
+Route::post('/register', [AuthController::class, 'register']);
 
-Route::put('/products', [UserController::class, 'update']);
-
-Route::post('/products', [UserController::class, 'store']);
-// Product API's
+Route::post('/login', [AuthController::class, 'login']);
+// Non auth API's
 
 Route::group(['middleware' => ['auth:sanctum']], function() { 
-Route::post('/register', [AuthController::class, 'register']);
-Route::post('/register', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout']);
+Route::delete('/products/{id}', [UserController::class, 'destroy']);
+Route::put('/products', [UserController::class, 'update']);
+Route::post('/products', [UserController::class, 'store']);
 });
