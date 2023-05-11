@@ -25,7 +25,7 @@ Route::get('/greet', [UserController::class, 'greet']);
 Route::get('/greet2', [UserController::class, 'greet2']);
 // Testing API's
 
-// Non auth API's
+// Non auth API's (OA Swagger)
 Route::get('/products', [UserController::class, 'index']);
 
 Route::get('/products/search/{name}', [UserController::class, 'search']);
@@ -35,11 +35,19 @@ Route::get('/products/{id}', [UserController::class, 'show']);
 Route::post('/register', [AuthController::class, 'register']);
 
 Route::post('/login', [AuthController::class, 'login']);
-// Non auth API's
 
-Route::group(['middleware' => ['auth:sanctum']], function() { 
 Route::post('/logout', [AuthController::class, 'logout']);
 Route::delete('/products/{id}', [UserController::class, 'destroy']);
 Route::put('/products', [UserController::class, 'update']);
-Route::post('/products', [UserController::class, 'store']);
-});
+Route::post('/products', [UserController::class, 'store']);  
+// Non auth API's (OA Swagger)
+
+
+// API's w Auth
+Route::group(['middleware' => ['auth:sanctum']], function() { 
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::delete('/products/{id}', [ProductController::class, 'destroy']);
+    Route::put('/products', [ProductController::class, 'update']);
+    Route::post('/products', [ProductController::class, 'store']);
+}); 
+// API's w Auth

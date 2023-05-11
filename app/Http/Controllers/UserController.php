@@ -165,7 +165,7 @@ public function store(Request $request)
             'price' => 'required'
         ]);
 
-        return Product::create($request->all());
+        return Product::create($request->all(),419);
     } 
  
     /**

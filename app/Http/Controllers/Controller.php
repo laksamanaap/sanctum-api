@@ -9,8 +9,8 @@ use Illuminate\Routing\Controller as BaseController;
 /**
      * @OA\Info(
      *      version="1.0.0",
-     *      title="Laravel Swagger test Open API",
-     *      description="L5 Swagger OpenApi description",
+     *      title="Products Open API",
+     *      description="Self Improvement Book API's",
      *      @OA\Contact(
      *          email="laksamana.arya1412@gmail.com"
      *      ),

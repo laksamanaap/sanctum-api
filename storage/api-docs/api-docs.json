@@ -1,8 +1,8 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Laravel Swagger test Open API",
-        "description": "L5 Swagger OpenApi description",
+        "title": "Products Open API",
+        "description": "Self Improvement Book API's",
         "contact": {
             "email": "laksamana.arya1412@gmail.com"
         },
